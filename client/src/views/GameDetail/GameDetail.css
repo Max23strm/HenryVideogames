@@ -1,0 +1,10 @@
+.gameDetail{
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+@media screen and (min-width:800px) {
+    .gameDetail{
+        margin-left: 55px;
+    }
+}

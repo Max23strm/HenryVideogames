@@ -1,0 +1,32 @@
+.paginado{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-between;
+}
+.paginado p{
+    border: 1px solid #cccaca;
+    padding: .5rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.paginado p:hover{
+    background-color: #3FCAF1;
+    border-color: #F359C9;
+    cursor: pointer;
+}
+@media screen and (min-width:1000px) {
+    .paginado{
+        width: 40%;
+    }
+}
+@media screen and (min-width:1300px) {
+    .paginado{
+        width: 30%;
+    }
+}
+@media screen and (min-width:1600px) {
+    .paginado{
+        width: 20%;
+    }
+}

@@ -1,0 +1,47 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+.show{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+.mainCard{
+    box-shadow: 5px 5px 10px 1px #c5c5c5;
+    border: 1px solid #cccaca;
+    width: 90%;
+    margin:1rem 0;
+    border-radius: 10px;
+}
+
+.mainCard img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+} 
+.mainCard section .titulos{
+    margin:0 .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainCard section .plataformas {
+    display:flex;
+    flex-flow: wrap;
+    margin-bottom: 1rem;
+}
+.mainCard section .plataformas p {
+    font-weight: bold;
+    color: #00084e;
+    font-size: .7rem;
+    margin: .5rem .5rem 0;
+    padding: 5px 7px;
+    background-color: #76FDDD;
+    border-radius: 10px;
+}
+
+@media screen and (min-width:800px) {
+    
+}

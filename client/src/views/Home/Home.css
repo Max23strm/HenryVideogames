@@ -1,0 +1,10 @@
+.home{
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+@media screen and (min-width:800px) {
+    .home{
+        margin-left: 55px;
+    }
+}

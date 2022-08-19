@@ -1,0 +1,32 @@
+.searchBarContainer{
+    margin-top: 1.3rem;
+}
+.hidden{
+    display: none;
+}
+.showing{
+    display: flex;
+}
+.searchBarContainer .searchBar{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: fit-content;
+    margin: 0 auto 2rem;
+}
+.searchBarContainer .searchBar input{
+    border: 1px solid #cccaca;
+    border-radius: 5px;
+    padding: 5px;
+}
+.searchBarContainer .searchBar button{
+    width: fit-content;
+    padding: .4rem .7rem;
+    margin: 0 auto;
+    border: none;
+    border: 1px solid #cccaca;
+    border-radius: 10px;
+}
+.searchBar button:hover{
+    cursor: pointer;
+}

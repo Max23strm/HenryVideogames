@@ -1,0 +1,78 @@
+.landingBack{
+    background-image: url(../../images/slanted-gradient.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #262A31;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+}
+.landingBack img{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    opacity: 80%;
+}
+.landingBack .texto{
+    z-index: 50;
+}
+.landingBack .texto h1{
+
+    color: white;
+    font-size: 3rem;
+    font-family: 'Bungee', cursive;
+    filter: drop-shadow(5px 5px 10px #000);
+
+}
+
+.blink-1 {
+    width: fit-content;
+    margin: 2rem auto;
+    -webkit-animation: blink-1 3s cubic-bezier(0.470, 0.000, 0.745, 0.715) infinite ;
+            animation: blink-1 3s cubic-bezier(0.470, 0.000, 0.745, 0.715) infinite ;
+}
+.landingBack .blink-1 button:hover{
+    cursor: pointer;
+}
+.landingBack .blink-1 button{
+    border: none;
+    width: fit-content;
+    background-color: transparent;
+    color: aqua;
+    filter: drop-shadow(5px 5px 10px #000);
+
+    font-family: 'Press Start 2P', cursive;
+}
+@media screen and (min-width:600px) {
+  .landingBack img{
+    width: 200vw;
+  }
+}
+  @-webkit-keyframes blink-1 {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+  @keyframes blink-1 {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+  

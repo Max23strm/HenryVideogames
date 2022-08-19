@@ -1,0 +1,40 @@
+.trayContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.trayMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width:600px) {
+    .trayMain{
+        display: grid;
+        justify-items: center;
+        align-items: start;
+        gap: .5rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width:800px) {
+    .trayMain{
+        border: 1px solid #cccaca;
+        margin: 1rem;
+        border-radius: 8px;
+    }
+}
+@media screen and (min-width:1000px) {
+    .trayMain{
+        grid-template-columns: repeat(3,1fr);
+        place-content: center;
+    }
+}
+@media screen and (min-width:1350px) {
+    .trayMain{
+        grid-template-columns: repeat(4,1fr);
+        place-content: center;
+    }
+}

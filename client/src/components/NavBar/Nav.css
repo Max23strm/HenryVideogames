@@ -1,0 +1,106 @@
+nav{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    z-index: 100;
+}
+.transparent{
+    background-color: transparent;
+    height: fit-content;
+    width: 55px;
+}
+.color{
+    background-color: #272729;
+    height: 100vh;
+    width: fit-content;
+    transition-duration: .3s;
+    transition-timing-function: ease-in;
+}
+nav button{
+    border: none;
+    background-color: transparent;
+}
+nav button:hover{
+    cursor: pointer;
+}
+nav .linkNavegacion{
+    flex-direction: column;
+    text-align: left;
+    width: 70vw;
+    margin-left: .5rem;
+    -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    
+}
+.hidden{
+    display:none
+}
+.showing{
+    display: flex;
+}
+nav .linkNavegacion .areaNavegacion{
+    padding-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .7rem;
+    margin: .5rem 0;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: transparent;
+}
+nav .linkNavegacion .areaNavegacion:hover{
+    cursor: pointer;
+    background-color: #333335;
+}
+nav .linkNavegacion .areaNavegacion h2{
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+  @keyframes fade-in-left {
+    0% {
+      -webkit-transform: translateX(-50px);
+              transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+@media screen and (min-width:800px) {
+    nav .linkNavegacion{
+        display: flex;
+        width: fit-content;
+    }
+    nav button{
+        display:none
+    }
+
+    .transparent{
+        background-color: #272729;
+        height: 100vw;
+    }
+    .areaNavegacion h2{
+        display: none;
+    }
+    nav:hover{
+        width: fit-content;
+        transition-duration: .3s;
+        transition-timing-function: ease-in;
+    }
+    nav:hover .linkNavegacion{
+        display: flex;
+        width: 30vw;
+    }
+    nav:hover .areaNavegacion h2{
+        display: block;
+    }
+}
