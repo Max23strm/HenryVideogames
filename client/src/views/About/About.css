@@ -1,0 +1,40 @@
+.aboutSection{
+    min-height: 100vh;
+}
+.aboutSection section{
+    margin: 1rem auto;
+    width: 90%;
+}
+.lightAboutSection{
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 1px #c5c5c5;
+    border: 1px solid #cccaca;
+}
+.darkAboutSection{
+    border-radius: 10px;
+    border: 1px solid #151515;
+    box-shadow: 5px 5px 10px 1px #0e0e0e;
+}
+.aboutSection h2{
+    margin:1.3rem 3rem ;
+}
+.aboutSection p{
+    margin:1.3rem 3rem ;
+}
+.aboutSection p a{
+    text-decoration: underline;
+}
+.aboutSection img{
+    border-radius: 10px;
+}
+@media screen and (min-width:800px) {
+    .aboutSection{
+        margin-left: 55px;
+    }
+    .aboutSection h2{
+        font-size: 2rem ;
+    }
+    .aboutSection p{
+        font-size:1.3rem;
+    }
+}

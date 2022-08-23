@@ -1,5 +1,6 @@
 .landingBack{
-    background-image: url(../../images/slanted-gradient.svg);
+    /* background-image: url(../../images/slanted-gradient.svg); */
+    background-image: url(../../images/low-poly-grid-haikei.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #262A31;
@@ -16,7 +17,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40rem;
-    opacity: 80%;
+    /* opacity: 90%; */
 }
 .landingBack .texto{
     z-index: 50;
@@ -45,7 +46,7 @@
     background-color: transparent;
     color: aqua;
     filter: drop-shadow(5px 5px 10px #000);
-
+    font-size: 1.3rem;
     font-family: 'Press Start 2P', cursive;
 }
 @media screen and (min-width:600px) {
@@ -53,7 +54,13 @@
     width: 200vw;
   }
 }
-  @-webkit-keyframes blink-1 {
+@media screen and (min-width:900px) {
+  .landingBack .texto h1{
+    font-size: 5rem;
+  }
+
+}
+@-webkit-keyframes blink-1 {
     0%,
     50%,
     100% {

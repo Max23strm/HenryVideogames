@@ -1,17 +1,26 @@
 .mainDetails{
     display: flex;
     flex-direction: column;
-    border: 1px solid #cccaca;
     border-radius:10px;
     padding:0 0 2rem 0;
-    box-shadow: 4px 4px 9px 0px #cccaca
 }
+.gameLight{
+    box-shadow: 5px 5px 10px 1px #c5c5c5;
+    border: 1px solid #cccaca;
+}
+
+.gameDark{
+    border: 1px solid #151515;
+    box-shadow: 5px 5px 10px 1px #0e0e0e;
+}
+
 .mainDetails .imageYTitle h2{
     color: #3FCAF1;
 }
 
 .mainDetails .imageYTitle .images img{
-    width: 20rem;
+    /* width: 20rem; */
+    border-radius: 10px;
 }
 
 .detailYweb{
@@ -23,9 +32,9 @@
 .secondaryDetails{
     margin-top: 2rem;
     padding: 0 .5rem;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     /* justify-items: center; */
-    grid-template-columns: repeat(2, 1fr );
     gap: 1rem;
 }
 h6{
@@ -46,14 +55,17 @@ h6{
 }
 /* #F359C9 */
 
+@media screen and (min-width:550px) {
+    .secondaryDetails{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr );
+    }
+}
 @media screen and (min-width:800px) {
     .mainDetails{
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-    }
-    .mainDetails .imageYTitle .images img{
-        width:  50VW;
     }
     .secondaryDetails{
         margin-top: 2rem;

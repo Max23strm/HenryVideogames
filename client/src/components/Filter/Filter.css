@@ -1,13 +1,16 @@
 .filtersContainer{
-    width: 95%;
+    width: 90%;
     margin: 1rem auto 2rem;
-    background-color: rgb(228, 225, 225);
     border: 1px solid #cccaca; 
     border-radius: 10px;
+}
+.tituloFilter{
+    font-weight: bold;
 }
 .filtersContainer .filterTitulo{
     display: flex;
     width: 100%;
+    padding: 0 1rem;
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
@@ -36,8 +39,9 @@
     gap: 1rem;
     margin: .3rem .5rem;
 }
-.filterGenerals button{
-    padding: .5rem;
+.filterGenerals .filterButton{
+    padding: .5rem 1rem;
+    font-weight: bold   ;
     border: none;
     border:1px solid #cccaca;
     border-radius: 10px;
@@ -48,6 +52,7 @@
     background-color: #acacac;
     cursor: pointer;
 }
+
 @media screen and (min-width:600px) {
     .filterGenerals .filterSection{
         flex-direction: row;

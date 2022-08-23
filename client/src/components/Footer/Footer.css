@@ -1,0 +1,15 @@
+footer{
+    margin-top: 3rem;
+    min-height: 6rem;
+    position: relative;
+    bottom: 0;
+    color: #F5F5F5;
+    background-color: #161616;
+}
+footer p{
+    padding: 1rem 0 0 0;
+    font-weight: bold;
+}
+footer section a{
+    margin: .5rem 2rem 
+}

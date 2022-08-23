@@ -10,6 +10,7 @@ let searchFlag="hidden"
 function SearchBar() {
     const dispatch=useDispatch()
     const [busqueda, setBusqueda]= useState("")
+    const light= useSelector(state=>state.theme)
     let resultadosBusqueda=useSelector(state=>state.searchedGames)
     const handleClick=()=>{
         dispatch(searchGames(busqueda))
@@ -22,7 +23,7 @@ function SearchBar() {
                 <button onClick={handleClick}>Search</button>
             </section>
             <section className={`results ${searchFlag}`}>
-                {resultadosBusqueda.length>0 ? <Tray data={resultadosBusqueda}/> : <Spinner/>}
+                {resultadosBusqueda.length>0 ? <Tray light={light} data={resultadosBusqueda}/> : <Spinner/>}
             </section>
             
         </article>

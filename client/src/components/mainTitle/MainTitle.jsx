@@ -1,7 +1,7 @@
 import '../mainTitle/MainTitle.css'
-function MainTitle() {
+function MainTitle({light}) {
   return (
-    <h1>Henry Videogames</h1>
+    <h1 className={`mainTitle ${light? "darkText": "lightText"} `}>Henry Videogames</h1>
   )
 }
 

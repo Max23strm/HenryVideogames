@@ -18,11 +18,11 @@ nav{
     transition-duration: .3s;
     transition-timing-function: ease-in;
 }
-nav button{
+nav .switch, .themeSwitch{
     border: none;
     background-color: transparent;
 }
-nav button:hover{
+nav .switch:hover, .themeSwitch:hover{
     cursor: pointer;
 }
 nav .linkNavegacion{
@@ -40,7 +40,7 @@ nav .linkNavegacion{
 .showing{
     display: flex;
 }
-nav .linkNavegacion .areaNavegacion{
+nav .linkNavegacion .areaNavegacion, nav .themeSwitch{
     padding-left: 50px;
     display: flex;
     flex-direction: row;
@@ -56,7 +56,7 @@ nav .linkNavegacion .areaNavegacion:hover{
     cursor: pointer;
     background-color: #333335;
 }
-nav .linkNavegacion .areaNavegacion h2{
+nav .linkNavegacion .areaNavegacion h2, nav .themeSwitch h2{
     font-size: 1.3rem;
     font-weight: normal;
     margin: 0;
@@ -80,7 +80,7 @@ nav .linkNavegacion .areaNavegacion h2{
         display: flex;
         width: fit-content;
     }
-    nav button{
+    nav .switch{
         display:none
     }
 
@@ -88,7 +88,7 @@ nav .linkNavegacion .areaNavegacion h2{
         background-color: #272729;
         height: 100vw;
     }
-    .areaNavegacion h2{
+    .areaNavegacion h2, .themeSwitch h2{
         display: none;
     }
     nav:hover{
@@ -100,7 +100,7 @@ nav .linkNavegacion .areaNavegacion h2{
         display: flex;
         width: 30vw;
     }
-    nav:hover .areaNavegacion h2{
+    nav:hover .areaNavegacion h2, nav:hover .themeSwitch h2{
         display: block;
     }
 }

@@ -1,0 +1,152 @@
+form{
+    margin: 1rem 0.7rem;
+    /* display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: .5rem; */
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: .5rem;
+
+}
+.sectionNombre, .sectionFecha, .sectionRating, .sectionDescription, .sectionPlataformas, .sectionGeneros{
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+}
+.sectionNombre input, .sectionFecha input, .sectionRating input, .sectionDescription input{
+    padding: .5rem;
+    width: 90%;
+    border-radius: 10px;    
+}
+.sectionNombre .formLight, .sectionFecha .formLight, .sectionRating .formLight, .sectionPlataformas .grupo .formLight, .sectionDescription .formLight, .sectionGeneros .formLight{
+    border: 1px solid #cccaca;
+}
+.sectionNombre .formDark, .sectionFecha .formDark, .sectionRating .formDark, .sectionPlataformas .grupo .formDark, .sectionDescription .formDark, .sectionGeneros .formDark{
+    border: 1px solid #151515;
+}
+.sectionPlataformas .grupo, .sectionGeneros .grupo{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: .5rem;
+}
+.sectionPlataformas .spinner, .sectionGeneros .spinner{
+    display: grid;
+    place-content: center;
+    margin: 1rem 0;
+}
+.sectionPlataformas .grupo .containerInput label:hover,
+.sectionGeneros .grupo .containerInput label:hover{
+    cursor: pointer;
+}
+.sectionPlataformas .grupo .containerInput,
+.sectionGeneros .grupo .containerInput  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: .5rem;
+}
+.sectionPlataformas .grupo .containerInput input,
+.sectionGeneros .grupo .containerInput input{
+    padding: .5rem;
+}
+.sectionPlataformas .grupo .containerInput label,
+.sectionGeneros .grupo .containerInput label{
+    max-width:90% ;
+    margin: .5rem 0 .5rem .5rem;
+}
+.submitButton{
+    padding: .5rem;
+    margin: 1rem auto;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    width: 90%;
+}
+.submitButton:hover{
+    cursor: pointer;
+}
+.lightFormAccent{
+    border: 3px solid #F279D4;
+    background-color: #F258CB;
+}
+.lightFormAccent:hover{
+    border: 3px solid #F279D4;
+    background-color: #41CDF0;
+}
+.darkFormAccent{
+    border: 3px solid #F258CB;
+    background-color: #F279D4;
+}
+.darkFormAccent:hover{
+    border: 3px solid #F258CB;
+    background-color: #78D8F0;
+}
+.message{
+    margin: 1rem auto;
+    font-size: 1.3rem;
+    display: grid;
+    place-content: center;
+    width: 95%;
+    height: 5rem;
+    border-radius: 10px;
+}
+.lightPop{
+    background-image: url(../../images/blurry-gradient-haikei.svg);
+}
+.darkPop{
+    background-image: url(../../images/layered-peaks-haikei.svg);
+    background-position:left;
+}
+.errorP {
+    color: red;
+    font-weight: bold;
+    margin: .3rem 0 1rem 0;
+}
+.error{
+    border: 2px solid red;
+}
+.showPop{
+    display: grid;
+}
+.hidePop{
+    display: none;
+}
+
+@media screen and (min-width:800px) {
+    .sectionPlataformas .grupo, .sectionGeneros .grupo{
+        grid-template-columns: repeat(3,1fr);
+        }
+}
+@media screen and (min-width:900px) {
+    form{
+        margin: 0 auto;
+        max-width: 70%;
+    }
+    .submitButton{
+        width: 60%;
+    }
+}
+@media screen and (min-width:1200px) {
+    .formContainer{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .sectionPlataformas .grupo, .sectionGeneros .grupo{
+        grid-template-columns: repeat(2,1fr);
+        }
+}
+@media screen and (min-width:1600px) {
+    .sectionPlataformas .grupo, .sectionGeneros .grupo{
+        grid-template-columns: repeat(3,1fr);
+        }
+    .submitButton{
+        width: 40%;
+    }
+}

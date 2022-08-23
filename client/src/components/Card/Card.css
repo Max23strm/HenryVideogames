@@ -1,21 +1,28 @@
 a{
-    color: black;
     text-decoration: none;
 }
-.show{
+.cardShow{
+    display: grid;
+}
+.imageShow{
     display: block;
 }
-.hidden{
+.cardHidden{
     display: none;
 }
 .mainCard{
-    box-shadow: 5px 5px 10px 1px #c5c5c5;
-    border: 1px solid #cccaca;
     width: 90%;
     margin:1rem 0;
     border-radius: 10px;
 }
-
+.lightShadow{
+    box-shadow: 5px 5px 10px 1px #c5c5c5;
+    border: 1px solid #cccaca;
+}
+.darkShadow{
+    border: 1px solid #151515;
+    box-shadow: 5px 5px 10px 1px #0e0e0e;
+}
 .mainCard img{
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -34,14 +41,18 @@ a{
 }
 .mainCard section .plataformas p {
     font-weight: bold;
-    color: #00084e;
     font-size: .7rem;
     margin: .5rem .5rem 0;
     padding: 5px 7px;
-    background-color: #76FDDD;
     border-radius: 10px;
 }
-
-@media screen and (min-width:800px) {
-    
+.mainCard section .darkAccent p {
+    background-color: #78D8F0;
+}
+.mainCard section .lightAccent p {
+    background-color: #41CDF0;
+}
+.cardSpinner{
+    place-content: center;
+    height: 10rem;
 }

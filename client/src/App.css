@@ -1,9 +1,25 @@
 .App {
   text-align: center;
   font-family: 'Montserrat Alternates', cursive;
+}
+.light{
   background-color: whitesmoke;
 }
-
+.dark{
+  background-color: #151515;
+}
+.lightText{
+  color:#F5F5F5
+}
+.darkText{
+  color:#161616
+}
+.lightThemeContainer{
+  background-color: #EBEBEB;
+}
+.darkThemeContainer{
+  background-color: #202020;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

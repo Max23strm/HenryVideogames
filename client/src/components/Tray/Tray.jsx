@@ -4,9 +4,10 @@ import Card from '../Card/Card'
 import '../Tray/Tray.css'
 
 
-function Tray({data}) {
+function Tray({data, light}) {
+
   const [pagina,setPagina]=useState(1)
-  const [cantidadDeElementos,setCantidadDeElementos]=useState(15)
+  const cantidadDeElementos=15
   const finalArreglo=pagina * cantidadDeElementos
   const principioArreglo=finalArreglo - cantidadDeElementos
   let mostrando=[]
@@ -16,9 +17,9 @@ function Tray({data}) {
     setPagina(numero)
   }
   return (
-    <section className='trayContainer'>
+    <section className={`trayContainer`}>
 
-      <section className='trayMain'>
+      <section className={`trayMain ${light?"lightThemeContainer":"darkThemeContainer"}`}>
           {mostrando && mostrando.map(e=><Card key={e.id} data={e}/>)}
 
       </section>

@@ -1,70 +1,90 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Gallery from '../Gallery/Gallery'
- import '../Game/Game.css'
+import { useSelector } from 'react-redux'
+import '../Game/Game.css'
 function Game({data}) {
+  const light= useSelector(state=>state.theme)
   
   return (
     data && 
     <article>
-      <section className='mainDetails'>
+      <section className={`mainDetails ${light?"lightThemeContainer gameLight": "darkThemeContainer gameDark"}`}>
         <section className='imageYTitle'>
           <h2 className='title'>
             {data.name}
           </h2>
-          <section className='images'>
+          {data.background_image &&  <section className='images'>
             <Gallery arr={[data.background_image, data.background_image_additional]}/>
-            {/* <img src={data.background_image} alt="" />
-            {data.background_image_additional && <img src={data.background_image_additional} alt="" />} */}
-          </section>
+          </section>}
+          {data.image &&  <section className='images'>
+            <Gallery arr={[data.image]}/>
+          </section>}
         </section>
+
+
         <section className='secondaryDetails'>
-        <section className='mindetails released'>
-          <h6>Released:</h6>
-          <p>{data.released}</p>
-        </section>
 
-        <section className='mindetails rating'>
-          <h6>Rating:</h6>
-          <p>
-            {data.rating}★
-          </p>
-        </section>
-
-        {data.platforms && 
-        <section className='mindetails platforms'>
-          <h6>Platforms:</h6>
-          <section>
-            {data.platforms.map(e=>{
-              return <p key={`Plat${data.platforms.indexOf(e)}`}>{e.platform.name}</p>
-            })
-            }
+          <section className='mindetails released'>
+            <h6>Released:</h6>
+            {data.released? <p className={light?"darkText":"lightText"}>{data.released}</p>: <p>{data.fecha_de_lanzamiento}</p>}
           </section>
-        </section>
 
-        }
-        {data.genres &&
-        <section className='mindetails genres'>
-          <h6>Genres:</h6>
-          <section>
-            {data.genres.map(e=>{
-              return <p key={`${data.genres.indexOf(e)}Gen`}>{e.name}</p>
-            })
-            }
+          <section className='mindetails rating'>
+            <h6>Rating:</h6>
+            <p className={light?"darkText":"lightText"}>
+              {data.rating}★
+            </p>
           </section>
+
+          {data.platforms && 
+          <section className='mindetails platforms'>
+            <h6>Platforms:</h6>
+            <section>
+              {data.platforms.map(e=>{
+                return <p   className={light?"darkText":"lightText"} key={`Plat${data.platforms.indexOf(e)}`}>{e.platform.name}</p>
+              })
+              }
+            </section>
+          </section>
+          }
+
+          {data.genres &&
+          <section className='mindetails genres'>
+            <h6>Genres:</h6>
+            <section>
+              {data.genres.map(e=>{
+                if(typeof e!=="string"){
+                  return <p className={light?"darkText":"lightText"} key={`${data.genres.indexOf(e)}Gen`}>{e.name}</p>
+                } else{
+                  return <p className={light?"darkText":"lightText"} key={`${data.genres.indexOf(e)}Gen`}>{e}</p>
+
+                }
+              })
+              }
+            </section>
+          </section>
+          }
+
         </section>
-        }
       </section>
-      </section>
-        <section className='detailYweb'>
-          {data.description_raw &&<section>
-              <h6>Detail:</h6>
+
+
+      <section className='detailYweb'>
+        {data.description_raw ?<section>
+            <h6>Detail:</h6>
+            <p className={light?"darkText":"lightText"}>
               {data.description_raw}
-            </section> }
-          
-          <Link to={data.website}>Website</Link>
-          
-        </section>
+            </p>
+          </section>:<section>
+            <h6>Detail:</h6>
+            <p className={light?"darkText":"lightText"}>
+              {data.description}
+            </p>
+          </section> }
+        
+        {data.website && <a href={data.website} target={"_blank"} rel="noreferrer">Website</a>}
+        
+      </section>
       
       
     </article>

@@ -8,20 +8,21 @@ import MainTitle from "../../components/mainTitle/MainTitle"
 import '../Home/Home.css'
 
 function Home() {
-    const dispatch= useDispatch()
-    let allGames= useSelector((state)=> state.showingGames)
-    const [filtros,setFiltros]=useState({genero:null, creado:null, orden:null})
-
-    useEffect(()=>{
-        dispatch(getAllGames())
-        dispatch(getAllGenres())
-      // eslint-disable-next-line  
-    },[])
+  const dispatch= useDispatch()
+  let allGames= useSelector((state)=> state.showingGames)
+  const light= useSelector(state=>state.theme)
+  const [filtros,setFiltros]=useState({genero:null, creado:null, orden:null})
+  
+  useEffect(()=>{
+      dispatch(getAllGames())
+      dispatch(getAllGenres())
+    // eslint-disable-next-line  
+  },[])
   return (
     <div className="home">
-      <MainTitle/>
+      <MainTitle light={light} />
       <Filter setFiltros={setFiltros} filtros={filtros}/>
-      {allGames[0]?<Tray data={allGames} />: <Spinner/>}
+      {allGames[0]?<Tray data={allGames} light={light} />: <Spinner/>}
     </div>
   )
 }

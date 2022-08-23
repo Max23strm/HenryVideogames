@@ -1,9 +1,19 @@
 .gallery{
     position: relative;
+    min-width: 50vw;
     width: fit-content;
     margin: 0 auto;
+    border-radius: 10px;
 }
-
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
+.gallery img{
+    width: 50vw;
+}
 .galleryB{
     position: absolute;
     background-color: transparent;
@@ -24,4 +34,7 @@
 }
 .galleryB:first-child{
     left: 0;
+}
+.galleryB:disabled{
+    color: gray
 }

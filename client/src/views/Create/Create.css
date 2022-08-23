@@ -1,0 +1,8 @@
+.createGenrealView{
+    min-height: 100vh;
+}
+@media screen and (min-width:800px) {
+    .createGenrealView{
+        margin-left: 55px;
+    }
+}
