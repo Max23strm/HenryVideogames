@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function CustomHook() {
+function useCustomHook() {
     const [errorName,setErrorName]=useState({value:false, message:""})
     const [errorFecha,setErrorFecha]=useState({value:false, message:""})
     const [errorRating,setErrorRating]=useState({value:false, message:""})
@@ -46,7 +46,7 @@ function CustomHook() {
 
 
         //Validar Rating
-        if(typeof(forma.rating)!=="number" || isNaN(forma.rating    )){
+        if(typeof(forma.rating)!=="number" || isNaN(forma.rating)){
             setErrorRating({value:true, message:"The value is not valid"})
             flagRating=false
         }else if(forma.rating<1 || forma.rating>5){
@@ -121,4 +121,4 @@ function CustomHook() {
     }
 }
 
-export default CustomHook
+export default useCustomHook

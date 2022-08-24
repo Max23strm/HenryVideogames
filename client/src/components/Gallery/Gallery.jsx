@@ -5,7 +5,6 @@ import '../Gallery/Gallery.css'
 function Gallery({arr}) {
     const [showing,setShowing]=useState(arr[0])
     const [mostrar, setMostrar]=useState(false)
-    console.log(arr)
 
     const handleGalleryClick=()=>{
         if(arr[1]){

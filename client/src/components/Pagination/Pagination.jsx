@@ -3,11 +3,13 @@ import '../Pagination/Pagination.css'
 
 function Pagination({cantidadDeElementos, data, paginado}) {
     const light=useSelector(state=>state.theme)
+    
     const paginas=[]
 
     for(let p=0; p < Math.ceil(data.length/cantidadDeElementos); p++){
         paginas.push(p)
     }
+
     return (
         <section className={`paginado `}>
             {paginas && paginas.map(e =>{

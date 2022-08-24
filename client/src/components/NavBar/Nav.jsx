@@ -37,11 +37,6 @@ const Nav = () => {
           <HomeIcon light={light}/>
           <h2>Home</h2>
         </Link>
-
-        <Link to={"/search"} className="areaNavegacion" onClick={()=>setMostrar(false)}>
-          <SearchIcon light={light}/>
-          <h2>Search</h2>
-        </Link>
         
         <Link className="areaNavegacion" to={"/create"} onClick={()=>setMostrar(false)}>
           <PlusIcon light={light}/>

@@ -15,13 +15,23 @@ a{
     margin:1rem 0;
     border-radius: 10px;
 }
+
 .lightShadow{
     box-shadow: 5px 5px 10px 1px #c5c5c5;
     border: 1px solid #cccaca;
 }
+.lightShadow:hover{
+    border: 1px solid #cccaca;
+    box-shadow: 5px 5px 10px 1px #91bdffb6;
+}
 .darkShadow{
     border: 1px solid #151515;
-    box-shadow: 5px 5px 10px 1px #0e0e0e;
+    box-shadow: 5px 5px 10px 1px #91bdffb6;
+}
+.darkShadow:hover{
+    border: 1px solid #151515;
+    box-shadow: 5px 5px 10px 1px #535353;
+    /* transform: scale(1.3); */
 }
 .mainCard img{
     width: 100%;

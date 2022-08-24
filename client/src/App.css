@@ -1,4 +1,6 @@
 .App {
+  max-width: 1920px;
+  margin: 0 auto;
   text-align: center;
   font-family: 'Montserrat Alternates', cursive;
 }
@@ -52,5 +54,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width:1950px){
+  .App{
+    margin-top: 50px;
   }
 }

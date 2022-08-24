@@ -2,10 +2,9 @@ const { Router } = require('express');
 const {Videogame, Genre} =  require ('../db')
 const axios=require("axios");
 const db = require('../db');
-
+const {API} = process.env;
 
 const router = Router();
-
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -24,7 +23,7 @@ router.get('/genres',async(req,res)=>{
         }
     } else{
         try {
-            const generos= await axios.get("https://api.rawg.io/api/genres?key=5ac760a399274ce3a3430fd018f600c4")
+            const generos= await axios.get(`https://api.rawg.io/api/genres?key=${API}`)
             const generosFiltrados=generos.data.results.map(e=>{
                 return {
                     id:e.id,
@@ -46,7 +45,7 @@ router.get('/genres',async(req,res)=>{
 router.get('/videogames', async (req,res)=>{
     const {name}=req.query
     if (name){
-        const datos= await axios.get(`https://api.rawg.io/api/games?search=${name}&&key=5ac760a399274ce3a3430fd018f600c4`)
+        const datos= await axios.get(`https://api.rawg.io/api/games?search=${name}&&key=${API}`)
         const enviar=datos.data.results.map(j=>{
             return{
                 "id":j.id,
@@ -66,11 +65,11 @@ router.get('/videogames', async (req,res)=>{
     } else{
         try{
             let promesas=[
-                await axios.get(`https://api.rawg.io/api/games?key=5ac760a399274ce3a3430fd018f600c4&page=${randomNumber}`),
-                await axios.get(`https://api.rawg.io/api/games?key=5ac760a399274ce3a3430fd018f600c4&page=${randomNumber + 1}`),
-                await axios.get(`https://api.rawg.io/api/games?key=5ac760a399274ce3a3430fd018f600c4&page=${randomNumber + 2}`),
-                await axios.get(`https://api.rawg.io/api/games?key=5ac760a399274ce3a3430fd018f600c4&page=${randomNumber + 3}`),
-                await axios.get(`https://api.rawg.io/api/games?key=5ac760a399274ce3a3430fd018f600c4&page=${randomNumber + 4}`)
+                await axios.get(`https://api.rawg.io/api/games?key=${API}&page=${randomNumber}`),
+                await axios.get(`https://api.rawg.io/api/games?key=${API}&page=${randomNumber + 1}`),
+                await axios.get(`https://api.rawg.io/api/games?key=${API}&page=${randomNumber + 2}`),
+                await axios.get(`https://api.rawg.io/api/games?key=${API}&page=${randomNumber + 3}`),
+                await axios.get(`https://api.rawg.io/api/games?key=${API}&page=${randomNumber + 4}`)
             ]
             let enviarApi=[]
             promesas.forEach(e=>{
@@ -102,7 +101,7 @@ router.get('/videogames', async (req,res)=>{
         if(id){
             if(id.length<13){
                 try {
-                    const juego= await axios.get(`https://api.rawg.io/api/games/${id}?key=5ac760a399274ce3a3430fd018f600c4`)
+                    const juego= await axios.get(`https://api.rawg.io/api/games/${id}?key=${API}`)
                     let enviarData=juego.data
                     res.json(enviarData)
                 } catch (error) {

@@ -5,6 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
 import store from '../src/redux/store/index'
+import dotenv from 'dotenv';
+import axios from 'axios';
+
+dotenv.config();
+
+//Envolver la app en redux porque sino redux no va a funcionar como deberÃ­a
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
 
 ReactDOM.render(
   <React.StrictMode>

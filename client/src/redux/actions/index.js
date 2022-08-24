@@ -10,7 +10,8 @@ export const types={
     GET_PLATFORMS: "GET_PLATFORMS",
     CREATE_GAME: "CREATE_GAME",
     CHANGE_THEME:"CHANGE_THEME",
-    CLEAR_GAME_STATE:"CLEAR_GAME_STATE"
+    CLEAR_GAME_STATE:"CLEAR_GAME_STATE",
+    CLEAR_SEARCH_STATE:"CLEAR_SEARCH_STATE"
 }
 
 
@@ -97,5 +98,11 @@ export const changeTheme=()=>{
 export const clearGame=()=>{
     return({
         type: types.CLEAR_GAME_STATE
+    })
+}
+
+export const clearSearch=()=>{
+    return({
+        type: types.CLEAR_SEARCH_STATE
     })
 }

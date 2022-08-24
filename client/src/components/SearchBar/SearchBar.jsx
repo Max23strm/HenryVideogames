@@ -1,31 +1,38 @@
-import Tray from "../Tray/Tray"
-import {useDispatch, useSelector} from 'react-redux'
-import { searchGames } from "../../redux/actions"
+
+import {useDispatch} from 'react-redux'
+import { searchGames, clearSearch } from "../../redux/actions"
 import { useState } from "react"
-import Spinner from "../UI/Spinner"
 
 import '../SearchBar/SearchBar.css'
 
-let searchFlag="hidden"
-function SearchBar() {
+function SearchBar({setSearchFlag, searchFlag}) {
     const dispatch=useDispatch()
     const [busqueda, setBusqueda]= useState("")
-    const light= useSelector(state=>state.theme)
-    let resultadosBusqueda=useSelector(state=>state.searchedGames)
+    const [error,setError]=useState(false)
     const handleClick=()=>{
-        dispatch(searchGames(busqueda))
-        searchFlag="showing"
+        if(busqueda===""){
+            setError(true)
+        }else{
+            setError(false)
+            dispatch(searchGames(busqueda))
+            setSearchFlag(true)
+            setBusqueda("")
+        }
     }
+    const handleClose=()=>{
+        setSearchFlag(false)
+        dispatch(clearSearch())
+    }
+
     return (
         <article className="searchBarContainer">
             <section className="searchBar">
-                <input type="text" value={busqueda} onChange={e=>setBusqueda(e.target.value)}/>
+                <input className={`${error?"redBorder":null}`}type="text" value={busqueda} placeholder={"Insert your search"} onChange={e=>setBusqueda(e.target.value)}/>
+            </section>
+            <section className={`button`}>
                 <button onClick={handleClick}>Search</button>
+                {searchFlag && <button onClick={handleClose}>Close search</button>}
             </section>
-            <section className={`results ${searchFlag}`}>
-                {resultadosBusqueda.length>0 ? <Tray light={light} data={resultadosBusqueda}/> : <Spinner/>}
-            </section>
-            
         </article>
     )
 }

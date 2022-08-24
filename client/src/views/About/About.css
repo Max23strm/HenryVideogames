@@ -25,6 +25,8 @@
     text-decoration: underline;
 }
 .aboutSection img{
+    width: 90%;
+    max-width: 1900px;
     border-radius: 10px;
 }
 @media screen and (min-width:800px) {

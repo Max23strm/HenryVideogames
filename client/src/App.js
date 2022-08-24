@@ -2,7 +2,6 @@ import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import Landing from './components/Landing/Landing.jsx';
 import Nav from './components/NavBar/Nav';
 import Home from './views/Home/Home';
-import Search from './views/Search/Search';
 import GameDetail from './views/GameDetail/GameDetail';
 import { Create } from './views/Create/Create';
 import { useSelector } from 'react-redux';
@@ -24,9 +23,6 @@ function App() {
             <Switch>
               <Route exact path={"/home"}>
                 <Home/>
-              </Route>
-              <Route exact path={"/search"}>
-                <Search/>
               </Route>
               <Route exact path={"/videogames/:id"}>
                 <GameDetail/>

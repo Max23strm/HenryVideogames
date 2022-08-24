@@ -1,7 +1,7 @@
 import { useState ,useEffect} from 'react'
 import { getAllGames, createGame,getAllGenres } from '../../redux/actions'
 import {useDispatch, useSelector} from 'react-redux'
-import CustomHook from '../../Hooks/CustomHook'
+import useCustomHook from '../../Hooks/useCustomHook'
 import Spinner from '../UI/Spinner'
 import '../Form/Form.css'
 
@@ -12,7 +12,7 @@ export const Form = () => {
         errorName,
         errorPlatforms,
         errorRating,
-        validate}=CustomHook()
+        validate}=useCustomHook()
     const [form,setForm]=useState({
         name:"",
         fecha_de_lanzamiento:"",
@@ -32,6 +32,12 @@ export const Form = () => {
         dispatch(getAllGenres())
         // eslint-disable-next-line
     },[])
+    useEffect(()=>{
+        if(form.rating===NaN){
+            setForm({...form, rating:""})
+        }
+        // eslint-disable-next-line
+    },[form])
 
     useEffect(()=>{
         if(!plataformas[0]){
@@ -51,13 +57,14 @@ export const Form = () => {
         if(target.checked){
             setForm({...form, genres:[...form.genres, target.value]})
         } else{
-            setForm({...form, genres: form.genres.filter(e=>target.value!==e.name)})
+            setForm({...form, genres: form.genres.filter(e=>target.value!==e)})
         } 
     }
 
     const handleSubmit=(e)=>{
         e.preventDefault()
         if(validate(form, plataformas, generos)===false){
+            setForm({...form, rating:""})
             return false
         } else{
             dispatch(createGame(form))

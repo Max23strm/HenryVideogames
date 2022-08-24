@@ -1,25 +1,25 @@
 .searchBarContainer{
-    margin-top: 1.3rem;
-}
-.hidden{
-    display: none;
-}
-.showing{
-    display: flex;
+    margin:1.3rem auto 0;
+    width: 90%;
 }
 .searchBarContainer .searchBar{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: fit-content;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
 }
 .searchBarContainer .searchBar input{
+    font-family: 'Montserrat Alternates', cursive;
+
     border: 1px solid #cccaca;
     border-radius: 5px;
     padding: 5px;
+    width: 90%;
 }
-.searchBarContainer .searchBar button{
+.searchBarContainer .button{
+    display: flex;
+    justify-content: space-evenly;
+}
+.searchBarContainer .button button{
+    font-family: 'Montserrat Alternates', cursive;
+    font-weight: bold;
     width: fit-content;
     padding: .4rem .7rem;
     margin: 0 auto;
@@ -29,4 +29,36 @@
 }
 .searchBar button:hover{
     cursor: pointer;
+}
+.redBorder{
+    outline: 1px solid red;
+}
+@media screen and (min-width:500px) {
+    .searchBarContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
+        align-items: center;
+
+    }
+    .searchBarContainer input, .searchBarContainer .searchBar{
+        margin: 0;
+    }
+    .searchBarContainer .button{
+        flex-direction: row;
+        gap:1rem;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (min-width:500px) {
+    .searchBarContainer .searchBar {
+        width: 50%;
+        max-width: 400px;
+    }
+}
+@media screen and (min-width:1000px) {
+    .searchBarContainer  {
+        justify-content:space-evenly;
+        max-width: 600px;
+    }
 }

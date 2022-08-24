@@ -1,5 +1,5 @@
 import Pagination from '../Pagination/Pagination.jsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import '../Tray/Tray.css'
 
@@ -11,11 +11,15 @@ function Tray({data, light}) {
   const finalArreglo=pagina * cantidadDeElementos
   const principioArreglo=finalArreglo - cantidadDeElementos
   let mostrando=[]
+  
   if(data) { mostrando = data.slice(principioArreglo, finalArreglo)}
 
   const paginado= (numero)=>{
     setPagina(numero)
   }
+  useEffect(()=>{
+    paginado(1)
+  },[data])
   return (
     <section className={`trayContainer`}>
 
