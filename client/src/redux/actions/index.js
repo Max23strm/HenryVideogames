@@ -18,7 +18,7 @@ export const types={
 export const getAllGames=()=>{
     return async (dispatch)=>{
         try {
-            let json= await axios.get("http://localhost:3001/videogames")
+            let json= await axios.get("/videogames")
                 return dispatch({
                         type: types.GET_GAMES,
                         payload: json.data
@@ -36,7 +36,7 @@ export const getAllGames=()=>{
 export const getAllGenres=()=>{
     return async (dispatch)=>{
         try {
-            let json= await axios.get("http://localhost:3001/genres")
+            let json= await axios.get("/genres")
                 return dispatch({
                     type:types.GET_GENRES,
                     payload: json.data
@@ -60,7 +60,7 @@ export const filterGames=(payload)=>{
 
 export const searchGames=(term)=>{
     return async (dispatch)=>{
-        let json = await axios.get(`http://localhost:3001/videogames?name=${term}`)
+        let json = await axios.get(`/videogames?name=${term}`)
         return dispatch({
             type:types.GET_GAME_BY_NAME,
             payload: json.data
@@ -70,7 +70,7 @@ export const searchGames=(term)=>{
 
 export const getById=(param)=>{
     return async (dispatch)=>{
-        let juego= await axios.get(`http://localhost:3001/videogames/${param}`)
+        let juego= await axios.get(`/videogames/${param}`)
         return dispatch({
             type: types.GET_BY_ID,
             payload: juego.data
@@ -80,7 +80,7 @@ export const getById=(param)=>{
 
 export const createGame=(obj)=>{
     return async (dispatch)=>{
-        let creado= await axios.post(`http://localhost:3001/videogames`,obj)    
+        let creado= await axios.post(`/videogames`,obj)    
 
         return dispatch({
             type:types.CREATE_GAME,
