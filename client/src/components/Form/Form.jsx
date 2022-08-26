@@ -16,7 +16,7 @@ export const Form = () => {
     const [form,setForm]=useState({
         name:"",
         fecha_de_lanzamiento:"",
-        rating:0,
+        rating:"",
         plataformas:[],
         description:"",
         genres:[]
@@ -47,7 +47,7 @@ export const Form = () => {
     const handleRating=(target)=>{
         let valor= parseInt(target.value)
         if(!isNaN(valor)){
-            setForm({...form, rating:target.value})
+            setForm({...form, rating:valor})
         } else if(target.value<1){
             setForm({...form, rating:0})
         }
@@ -86,7 +86,7 @@ export const Form = () => {
             setForm({
                 name:"",
                 fecha_de_lanzamiento:"",
-                rating:0,
+                rating: 0,
                 plataformas:[],
                 description:"",
                 genres:[]
@@ -131,7 +131,7 @@ export const Form = () => {
                 ${light?"darkText":"lightText"}`}>
                     Rating:
                 </h6>
-                <input  onChange={(e)=>handleRating(e.target)}
+                <input value={form.rating?form.rating:""} onChange={(e)=>handleRating(e.target)}
                 className={`${light?"light formLight darkText":"dark gameDark lightText"}
                 ${errorRating.value && "error"}`}
                 type="number"
