@@ -16,7 +16,7 @@ export const Form = () => {
     const [form,setForm]=useState({
         name:"",
         fecha_de_lanzamiento:"",
-        rating:"",
+        rating:0,
         plataformas:[],
         description:"",
         genres:[]
@@ -32,12 +32,26 @@ export const Form = () => {
         dispatch(getAllGenres())
         // eslint-disable-next-line
     },[])
-    useEffect(()=>{
-        if(form.rating===NaN){
-            setForm({...form, rating:""})
+    
+    useEffect(() => {
+        if(setShowPop){
+            const timer = setTimeout(() => {
+                setShowPop(false)
+            }, 3000);
+            return () =>{
+                clearTimeout(timer)
+            };
         }
-        // eslint-disable-next-line
-    },[form])
+    }, [showPop]);
+
+    const handleRating=(target)=>{
+        let valor= parseInt(target.value)
+        if(!isNaN(valor)){
+            setForm({...form, rating:target.value})
+        } else if(target.value<1){
+            setForm({...form, rating:0})
+        }
+    }
 
     useEffect(()=>{
         if(!plataformas[0]){
@@ -72,13 +86,15 @@ export const Form = () => {
             setForm({
                 name:"",
                 fecha_de_lanzamiento:"",
-                rating:"",
+                rating:0,
                 plataformas:[],
                 description:"",
                 genres:[]
             })
         }
     }
+
+
 
     return (
         <form method='POST' className={`${light?"lightThemeContainer":"darkThemeContainer"}`} >
@@ -115,7 +131,7 @@ export const Form = () => {
                 ${light?"darkText":"lightText"}`}>
                     Rating:
                 </h6>
-                <input value={form.rating} onChange={(e)=>setForm({...form, rating:parseInt(e.target.value)})}
+                <input  onChange={(e)=>handleRating(e.target)}
                 className={`${light?"light formLight darkText":"dark gameDark lightText"}
                 ${errorRating.value && "error"}`}
                 type="number"
@@ -151,6 +167,7 @@ export const Form = () => {
                             <input value={e}
                             id={e}
                             onChange={(e)=>handlePlatforms(e.target)}
+                            checked={showPop?false:undefined}
                             type="checkbox"/>
 
                             <label htmlFor={e}>
@@ -159,7 +176,7 @@ export const Form = () => {
                         </section>
                     }): <Spinner/>}
                 </section>
-            <p className={`errorP ${errorPlatforms.value ? "show" : "hidden"}`}>{errorPlatforms.message}</p>
+                <p className={`errorP ${errorPlatforms.value ? "show" : "hidden"}`}>{errorPlatforms.message}</p>
             </section>
 
             <section className='sectionGeneros'>
@@ -172,7 +189,7 @@ export const Form = () => {
                         key={generos.indexOf(e)}>
 
                             <input value={e}
-
+                            checked={showPop?false:undefined}
                             id={e}
                             onChange={(e)=>handleGenres(e.target)}
                             type="checkbox"/>
@@ -189,7 +206,7 @@ export const Form = () => {
             <article className={`message ${light?"lightPop":"darkPop"} ${showPop? "showPop":"hidePop"}`}>
                 <h4>Game created!</h4>
             </article>
-            <button className={`submitButton ${light?"lightFormAccent":"darkFormAccent"} `}onClick={(e)=>handleSubmit(e)} >CREATE</button>
+            <button className={`submitButton ${light?"lightFormAccent":"darkFormAccent"} `}onClick={(e)=>handleSubmit(e)} type={'reset'}>CREATE</button>
         </form>
     )
 }

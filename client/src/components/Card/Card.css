@@ -11,10 +11,12 @@ a{
     display: none;
 }
 .mainCard{
-    width: 90%;
+    position: relative;
+    width: 95%;
     margin:1rem 0;
     border-radius: 10px;
 }
+
 
 .lightShadow{
     box-shadow: 5px 5px 10px 1px #c5c5c5;
@@ -35,6 +37,7 @@ a{
 }
 .mainCard img{
     width: 100%;
+    aspect-ratio: 2/1.5;
     border-radius: 10px 10px 0 0;
 } 
 .mainCard section .titulos{
