@@ -1,7 +1,11 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import MainTitle from '../../components/mainTitle/MainTitle'
 import '../About/About.css'
 function About() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const light= useSelector(state=>state.theme)
     return (
         <article className='aboutSection'>

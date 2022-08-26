@@ -1,10 +1,13 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Form } from '../../components/Form/Form'
 import MainTitle from '../../components/mainTitle/MainTitle'
-
 import '../Create/Create.css'
 
 export const Create = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const light= useSelector(state=>state.theme)
 
     return (

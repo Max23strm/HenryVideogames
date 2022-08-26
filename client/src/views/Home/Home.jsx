@@ -9,17 +9,20 @@ import MainTitle from "../../components/mainTitle/MainTitle"
 import '../Home/Home.css'
 
 function Home() {
+
   const dispatch= useDispatch()
   let allGames= useSelector((state)=> state.showingGames)
   const light= useSelector(state=>state.theme)
   const [filtros,setFiltros]=useState({genero:null, creado:null, orden:null})
   const [searchFlag, setSearchFlag]= useState(false)
   let resultadosBusqueda=useSelector(state=>state.searchedGames)
+  
   useEffect(()=>{
     if(!allGames[0]){
       dispatch(getAllGames())
     }
-      dispatch(getAllGenres())
+    window.scrollTo(0, 0)
+    dispatch(getAllGenres())
     // eslint-disable-next-line  
   },[])
 

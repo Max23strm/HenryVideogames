@@ -25,7 +25,7 @@ function Filter({setFiltros, filtros}) {
                 <section className='filterSection'>
                     <section className='filter'>
                         <p className={`${light?"darkText":"lightText"}`}>Show by Genre</p>
-                        <select onChange={(e)=>setFiltros({...filtros, genero: e.target.value})}>
+                        <select className={`${light?"lightSelect light darkText":"darkSelect dark lightText"}`} onChange={(e)=>setFiltros({...filtros, genero: e.target.value})}>
                             <option value={"All"}>
                                 Show all
                             </option>
@@ -36,7 +36,7 @@ function Filter({setFiltros, filtros}) {
                     </section>
                     <section className='filter'>
                         <p className={`${light?"darkText":"lightText"}`}>Show Games</p>
-                        <select onChange={(e)=>setFiltros({...filtros, creado: e.target.value})}>
+                        <select className={`${light?"lightSelect light darkText":"darkSelect dark lightText"}`} onChange={(e)=>setFiltros({...filtros, creado: e.target.value})}>
                             <option value={"All"}>
                                 Show all types
                             </option>
@@ -50,7 +50,7 @@ function Filter({setFiltros, filtros}) {
                     </section>
                     <section className='filter'>
                         <p className={`${light?"darkText":"lightText"}`}>Sort By...</p>
-                        <select onChange={(e)=>setFiltros({...filtros, orden: e.target.value})}>
+                        <select className={`${light?"lightSelect light darkText":"darkSelect dark lightText"}`} onChange={(e)=>setFiltros({...filtros, orden: e.target.value})}>
                             <option value={"MejorAPeor"}>
                                 Rating (Best first)
                             </option>

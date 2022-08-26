@@ -8,8 +8,11 @@ import { useSelector } from 'react-redux';
 import Footer from './components/Footer/Footer.jsx';
 import About from './views/About/About.jsx';
 
+
 import './App.css';
+
 function App() {
+
   const light= useSelector(state=>state.theme)
   return (
     <div className={`App ${light?'ligth':'dark'}`}>

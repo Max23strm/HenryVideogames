@@ -60,6 +60,17 @@
 .filter select{
     font-family: 'Montserrat Alternates', cursive;
     padding: .3rem;
+    border-radius: 5px;
+}
+
+.lightSelect{
+        /* box-shadow: 5px 5px 10px 1px #c5c5c5; */
+        border: 1px solid #cccaca;
+}
+
+.darkSelect{
+    border: 1px solid #151515;
+    /* box-shadow: 5px 5px 10px 1px #0e0e0e; */
 }
 
 @media screen and (min-width:600px) {

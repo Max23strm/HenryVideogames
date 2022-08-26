@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Gallery from '../Gallery/Gallery'
 import { useSelector } from 'react-redux'
 import '../Game/Game.css'
 function Game({data}) {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const light= useSelector(state=>state.theme)
   
   return (
@@ -26,7 +30,7 @@ function Game({data}) {
 
           <section className='mindetails released'>
             <h6>Released:</h6>
-            {data.released? <p className={light?"darkText":"lightText"}>{data.released}</p>: <p>{data.fecha_de_lanzamiento}</p>}
+            {data.released? <p className={light?"darkText":"lightText"}>{data.released}</p>: <p className={light?"darkText":"lightText"}>{data.fecha_de_lanzamiento}</p>}
           </section>
 
           <section className='mindetails rating'>

@@ -28,7 +28,7 @@ a{
 }
 .darkShadow{
     border: 1px solid #151515;
-    box-shadow: 5px 5px 10px 1px #535353;
+    box-shadow: 5px 5px 10px 1px #0e0e0e;
 }
 .darkShadow:hover{
     border: 1px solid #151515;
