@@ -58,7 +58,7 @@ export const rootReducer=(state=initialState, action)=>{
                             break;
                         default:
                             if(!juegosModificados[0]){
-                                juegosModificados=state.cachedGames
+                                juegosModificados=state.showingGames
                             }
                             break
                     }
