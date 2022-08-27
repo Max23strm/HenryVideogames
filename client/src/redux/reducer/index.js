@@ -30,65 +30,76 @@ export const rootReducer=(state=initialState, action)=>{
             }
         }
         
-        case  types.FILTER_GAMES:{
-            const showingGames= state.cachedGames
-            let juegosModificados=[]
-            if(action.payload.genero){
-                action.payload.genero==="All"?juegosModificados=[...showingGames]:juegosModificados=showingGames.filter(e=>e.genres.includes(action.payload.genero))
-            }
+            case  types.FILTER_GAMES:{
 
-            if(action.payload.creado){
-                switch (action.payload.creado){
-                    case "creado":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.filter(e=>e.id.length>10)
-                        } else{
-                            juegosModificados=showingGames.filter(e=>e.id.length>10)
-                        }
-                        break;
-                    case "estudio":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
-                    } else{
-                            juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
-                        }
-                        break;
-                    default:
-                        if(!juegosModificados[0]){
-                            juegosModificados=state.cachedGames
-                        }
-                        break
+                const showingGames= (state.searchedGames[0]?state.searchedGames:state.cachedGames)
+                let juegosModificados=[]
+                if(action.payload.genero){
+                    action.payload.genero==="All"?juegosModificados=[...showingGames]:juegosModificados=showingGames.filter(e=>e.genres.includes(action.payload.genero))
                 }
-            }
 
-            if(action.payload.orden){
-                switch (action.payload.orden){
-                    case "AZ":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.sort((a, b) => {
-                                if (a.name < b.name) {
-                                return -1;
-                                }
-                                if (a.name > b.name) {
-                                    return 1;
-                                }
-                                return 0;
-                            });    
-                        } else{                            
-                            juegosModificados=showingGames.sort((a, b) => {
-                                if (a.name < b.name) {
-                                return -1;
-                                }
-                                if (a.name > b.name) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-                        }
-                        break
-                    case "ZA":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.sort((a, b) => {
+                if(action.payload.creado){
+                    switch (action.payload.creado){
+                        case "creado":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.filter(e=>e.id.length>10)
+                            } else{
+                                juegosModificados=showingGames.filter(e=>e.id.length>10)
+                            }
+                            break;
+                        case "estudio":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
+                        } else{
+                                juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
+                            }
+                            break;
+                        default:
+                            if(!juegosModificados[0]){
+                                juegosModificados=state.cachedGames
+                            }
+                            break
+                    }
+                }
+    
+                if(action.payload.orden){
+                    switch (action.payload.orden){
+                        case "AZ":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.sort((a, b) => {
+                                    if (a.name < b.name) {
+                                    return -1;
+                                    }
+                                    if (a.name > b.name) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });    
+                            } else{                            
+                                juegosModificados=showingGames.sort((a, b) => {
+                                    if (a.name < b.name) {
+                                    return -1;
+                                    }
+                                    if (a.name > b.name) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
+                            }
+                            break
+                        case "ZA":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.sort((a, b) => {
+                                    if (a.name > b.name) {
+                                        return -1;
+                                    }
+                                    if (a.name < b.name) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                    });
+                            } else{
+                                juegosModificados=showingGames.sort((a, b) => {
                                 if (a.name > b.name) {
                                     return -1;
                                 }
@@ -97,78 +108,68 @@ export const rootReducer=(state=initialState, action)=>{
                                 }
                                 return 0;
                                 });
-                        } else{
-                            juegosModificados=showingGames.sort((a, b) => {
-                            if (a.name > b.name) {
-                                return -1;
                             }
-                            if (a.name < b.name) {
-                                return 1;
+                            break
+                        case "MejorAPeor":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.sort((a, b) => {
+                                    if (a.rating > b.rating) {
+                                        return -1;
+                                    }
+                                    if (a.rating < b.rating) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
+                            } else{
+                                juegosModificados=showingGames.sort((a, b) => {
+                                    if (a.rating > b.rating) {
+                                        return -1;
+                                    }
+                                    if (a.rating < b.rating) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
                             }
-                            return 0;
-                            });
-                        }
-                        break
-                    case "MejorAPeor":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.sort((a, b) => {
-                                if (a.rating > b.rating) {
-                                    return -1;
-                                }
-                                if (a.rating < b.rating) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-                        } else{
-                            juegosModificados=showingGames.sort((a, b) => {
-                                if (a.rating > b.rating) {
-                                    return -1;
-                                }
-                                if (a.rating < b.rating) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-                        }
-                        break
-                    case "peorAMejor":
-                        if(juegosModificados[0]){
-                            juegosModificados=juegosModificados.sort((a, b) => {
-                                if (a.rating < b.rating) {
-                                    return -1;
-                                }
-                                if (a.rating > b.rating) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-                        } else{
-                            juegosModificados=showingGames.sort((a, b) => {
-                                if (a.rating < b.rating) {
-                                    return -1;
-                                }
-                                if (a.rating > b.rating) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-                        }
-                        break
-                    default:
-                        if(!juegosModificados[0]){
-                            juegosModificados=showingGames
-                        }
-                    break 
+                            break
+                        case "peorAMejor":
+                            if(juegosModificados[0]){
+                                juegosModificados=juegosModificados.sort((a, b) => {
+                                    if (a.rating < b.rating) {
+                                        return -1;
+                                    }
+                                    if (a.rating > b.rating) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
+                            } else{
+                                juegosModificados=showingGames.sort((a, b) => {
+                                    if (a.rating < b.rating) {
+                                        return -1;
+                                    }
+                                    if (a.rating > b.rating) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
+                            }
+                            break
+                        default:
+                            if(!juegosModificados[0]){
+                                juegosModificados=showingGames
+                            }
+                        break 
+                    }
                 }
-            }
-            if(!action.payload.genero && !action.payload.creado && !action.payload.orden){
-                juegosModificados=showingGames
-            }
-            return{
-                ...state,
-                showingGames:[...juegosModificados]
-            }
+                if(!action.payload.genero && !action.payload.creado && !action.payload.orden){
+                    juegosModificados=showingGames
+                }
+                return{
+                    ...state,
+                    showingGames:[...juegosModificados]
+                }
         }
 
         case types.GET_GENRES: {
@@ -183,7 +184,8 @@ export const rootReducer=(state=initialState, action)=>{
 
                 return{
                     ...state,
-                    searchedGames:action.payload
+                    searchedGames:action.payload,
+                    showingGames:action.payload
                 }
             }else{
                 return{
@@ -224,6 +226,13 @@ export const rootReducer=(state=initialState, action)=>{
             return{
                 ...state,
                 searchedGames:{}
+            }
+        }
+
+        case types.RESTORE_GAMES:{
+            return{
+                ...state,
+                showingGames:[...state.cachedGames]
             }
         }
         default: return {...state}

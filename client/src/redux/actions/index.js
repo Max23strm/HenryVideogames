@@ -11,7 +11,9 @@ export const types={
     CREATE_GAME: "CREATE_GAME",
     CHANGE_THEME:"CHANGE_THEME",
     CLEAR_GAME_STATE:"CLEAR_GAME_STATE",
-    CLEAR_SEARCH_STATE:"CLEAR_SEARCH_STATE"
+    CLEAR_SEARCH_STATE:"CLEAR_SEARCH_STATE",
+    RESTORE_GAMES:"RESTORE_GAMES"
+
 }
 
 
@@ -104,5 +106,10 @@ export const clearGame=()=>{
 export const clearSearch=()=>{
     return({
         type: types.CLEAR_SEARCH_STATE
+    })
+}
+export const restoreGames=()=>{
+    return({
+        type: types.RESTORE_GAMES
     })
 }

@@ -1,6 +1,6 @@
 
 import {useDispatch} from 'react-redux'
-import { searchGames, clearSearch } from "../../redux/actions"
+import { searchGames, clearSearch, restoreGames } from "../../redux/actions"
 import { useState } from "react"
 
 import '../SearchBar/SearchBar.css'
@@ -22,6 +22,7 @@ function SearchBar({setSearchFlag, searchFlag}) {
     const handleClose=()=>{
         setSearchFlag(false)
         dispatch(clearSearch())
+        dispatch(restoreGames())
     }
 
     return (
