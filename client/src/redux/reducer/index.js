@@ -22,6 +22,7 @@ export const rootReducer=(state=initialState, action)=>{
                     }
                 })
             })
+
             return{
                 ...state,
                 allPlatforms:plataformasFlit,
@@ -39,18 +40,19 @@ export const rootReducer=(state=initialState, action)=>{
                 }
 
                 if(action.payload.creado){
+
                     switch (action.payload.creado){
                         case "creado":
                             if(juegosModificados[0]){
-                                juegosModificados=juegosModificados.filter(e=>e.id.length>10)
+                                juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
                             } else{
-                                juegosModificados=showingGames.filter(e=>e.id.length>10)
+                                juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
                             }
                             break;
                         case "estudio":
                             if(juegosModificados[0]){
                                 juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
-                        } else{
+                            } else{
                                 juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
                             }
                             break;
