@@ -44,9 +44,9 @@ export const rootReducer=(state=initialState, action)=>{
                     switch (action.payload.creado){
                         case "creado":
                             if(juegosModificados[0]){
-                                juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
+                                juegosModificados=juegosModificados.filter(e=>typeof e.id !=="number")
                             } else{
-                                juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
+                                juegosModificados=showingGames.filter(e=>typeof e.id !=="number")
                             }
                             break;
                         case "estudio":
