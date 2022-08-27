@@ -23,8 +23,8 @@ function Tray({data, light}) {
   return (
     <section className={`trayContainer`}>
 
-      <section className={`trayMain ${light?"lightThemeContainer":"darkThemeContainer"}`}>
-          {mostrando && mostrando.map(e=><Card key={e.id} data={e}/>)}
+      <section className={`${mostrando[0]==="vacio"?"errorTray":"trayMain"} ${light?"lightThemeContainer":"darkThemeContainer"}`}>
+          {mostrando && (mostrando[0]==="vacio"?<h2 className='errorSearch'>No match found</h2>:mostrando.map(e=><Card key={e.id} data={e}/>))}
 
       </section>
       <Pagination cantidadDeElementos={cantidadDeElementos} data={data} paginado={paginado} />

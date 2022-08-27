@@ -179,9 +179,17 @@ export const rootReducer=(state=initialState, action)=>{
         }
 
         case types.GET_GAME_BY_NAME:{
-            return{
-                ...state,
-                searchedGames:action.payload
+            if(action.payload[0]){
+
+                return{
+                    ...state,
+                    searchedGames:action.payload
+                }
+            }else{
+                return{
+                    ...state,
+                    searchedGames:["vacio"]
+                }
             }
         } 
 
