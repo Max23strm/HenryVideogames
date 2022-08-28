@@ -39,21 +39,34 @@ export const rootReducer=(state=initialState, action)=>{
                     action.payload.genero==="All"?juegosModificados=[...showingGames]:juegosModificados=showingGames.filter(e=>e.genres.includes(action.payload.genero))
                 }
 
+                let something=true
                 if(action.payload.creado){
-
                     switch (action.payload.creado){
                         case "creado":
                             if(juegosModificados[0]){
                                 juegosModificados=juegosModificados.filter(e=>typeof e.id !=="number")
+                                if(!juegosModificados[0]){
+                                    something=false
+
+                                }
                             } else{
                                 juegosModificados=showingGames.filter(e=>typeof e.id !=="number")
+                                if(!juegosModificados[0]){
+                                    something=false
+                                }
                             }
                             break;
                         case "estudio":
                             if(juegosModificados[0]){
                                 juegosModificados=juegosModificados.filter(e=>typeof e.id ==="number")
+                                if(!juegosModificados[0]){
+                                    something=false
+                                }
                             } else{
                                 juegosModificados=showingGames.filter(e=>typeof e.id ==="number")
+                                if(!juegosModificados[0]){
+                                    something=false
+                                }
                             }
                             break;
                         default:
@@ -65,9 +78,11 @@ export const rootReducer=(state=initialState, action)=>{
                 }
     
                 if(action.payload.orden){
+                    if(something){
                     switch (action.payload.orden){
                         case "AZ":
                             if(juegosModificados[0]){
+                                // console.log(juegosModificados)
                                 juegosModificados=juegosModificados.sort((a, b) => {
                                     if (a.name < b.name) {
                                     return -1;
@@ -164,13 +179,22 @@ export const rootReducer=(state=initialState, action)=>{
                             }
                         break 
                     }
+                    }
                 }
                 if(!action.payload.genero && !action.payload.creado && !action.payload.orden){
                     juegosModificados=showingGames
                 }
-                return{
-                    ...state,
-                    showingGames:[...juegosModificados]
+                if(something){
+                    return{
+                        ...state,
+                        showingGames:[...juegosModificados]
+                    }
+                } else{
+                    return{
+                        ...state,
+                        showingGames:["vacio"]
+                    }
+
                 }
         }
 
@@ -192,6 +216,7 @@ export const rootReducer=(state=initialState, action)=>{
             }else{
                 return{
                     ...state,
+                    showingGames:["vacio"],
                     searchedGames:["vacio"]
                 }
             }

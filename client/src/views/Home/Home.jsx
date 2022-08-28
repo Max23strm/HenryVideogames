@@ -15,7 +15,6 @@ function Home() {
   const light= useSelector(state=>state.theme)
   const [filtros,setFiltros]=useState({genero:null, creado:null, orden:null})
   const [searchFlag, setSearchFlag]= useState(false)
-  let resultadosBusqueda=useSelector(state=>state.searchedGames)
   
   useEffect(()=>{
     if(!allGames[0]){
@@ -32,11 +31,6 @@ function Home() {
       <SearchBar setSearchFlag={setSearchFlag} searchFlag={searchFlag}/>
       <Filter setFiltros={setFiltros} filtros={filtros}/>
       {allGames[0]?<Tray data={allGames} light={light} />: <Spinner/>}
-      {/* {(searchFlag && (!filtros.genero && !filtros.creado && !filtros.orden))?
-        (resultadosBusqueda.length>0 ?
-            (<Tray light={light} data={resultadosBusqueda}/>) : <Spinner/>):
-            (allGames[0]?<Tray data={allGames} light={light} />: <Spinner/>)
-      } */}
     </div>
   )
 }
